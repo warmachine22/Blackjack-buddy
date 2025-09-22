@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const CARD_VALUES = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     const KEYPAD_LAYOUT = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'BS'];
     const STRATEGY_CHART = {
-        hard: { title: 'Hard Totals', legend: 'Your hand does not contain an Ace counted as 11.', rows: { '17-20': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, '16': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'Sr', '10': 'Sr', A: 'Sr' }, '15': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'Sr', A: 'H' }, '14': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '13': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '12': { '2': 'H', '3': 'H', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '11': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'D', A: 'D' }, '10': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'H', A: 'H' }, '9': { '2': 'H', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '5-8': { '2': 'H', '3': 'H', '4': 'H', '5': 'H', '6': 'H', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}},
+        hard: { title: 'Hard Totals', legend: 'Your hand does not contain an Ace counted as 11.', rows: { '17-21': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, '16': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'Sr', '10': 'Sr', A: 'Sr' }, '15': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'Sr', A: 'H' }, '14': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '13': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '12': { '2': 'H', '3': 'H', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '11': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'D', A: 'D' }, '10': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'H', A: 'H' }, '9': { '2': 'H', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '5-8': { '2': 'H', '3': 'H', '4': 'H', '5': 'H', '6': 'H', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}},
         soft: { title: 'Soft Totals', legend: 'Your hand contains an Ace counted as 11.', rows: { 'A,9': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, 'A,8': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'D', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, 'A,7': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'S', '8': 'S', '9': 'H', '10': 'H', A: 'H' }, 'A,6': { '2': 'H', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,5': { '2': 'H', '3': 'H', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,4': { '2': 'H', '3': 'H', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,3': { '2': 'H', '3': 'H', '4': 'H', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,2': { '2': 'H', '3': 'H', '4': 'H', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}},
         pairs: { title: 'Pairs', legend: 'Your hand consists of two cards of the same rank.', rows: { 'A,A': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'P', '9': 'P', '10': 'P', A: 'P' }, '10,10': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, '9,9': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'S', '8': 'P', '9': 'P', '10': 'S', A: 'S' }, '8,8': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'P', '9': 'P', '10': 'P', A: 'P' }, '7,7': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '6,6': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '5,5': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'H', A: 'H' }, '4,4': { '2': 'H', '3': 'H', '4': 'H', '5': 'P', '6': 'P', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '3,3': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '2,2': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}}
     };
@@ -135,33 +135,48 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const getStrategyFromChart = (dealerCard, pCard1, pCard2) => {
-        const getCardValue = (card) => (['J', 'Q', 'K', '10'].includes(card) ? 10 : card === 'A' ? 11 : parseInt(card, 10));
-        
-        const numericP1 = pCard1 === 'A' ? pCard1 : CARD_VALUES.includes(pCard1) && getCardValue(pCard1) === 10 ? '10' : pCard1;
-        const numericP2 = pCard2 === 'A' ? pCard2 : CARD_VALUES.includes(pCard2) && getCardValue(pCard2) === 10 ? '10' : pCard2;
+        const getCardNumericValue = (card) => {
+            if (['J', 'Q', 'K', '10'].includes(card)) return 10;
+            if (card === 'A') return 11;
+            return parseInt(card, 10);
+        };
 
-        if (numericP1 === numericP2) {
-            return STRATEGY_CHART.pairs.rows[`${numericP1},${numericP1}`]?.[dealerCard];
+        const getCardLookupValue = (card) => {
+            if (['J', 'Q', 'K'].includes(card)) return '10';
+            return card;
+        };
+        
+        const lookupP1 = getCardLookupValue(pCard1);
+        const lookupP2 = getCardLookupValue(pCard2);
+        const dealerLookup = getCardLookupValue(dealerCard);
+
+        // 1. Check for Pairs
+        if (lookupP1 === lookupP2) {
+            const key = `${lookupP1},${lookupP1}`;
+            return STRATEGY_CHART.pairs.rows[key]?.[dealerLookup];
         }
 
-        if (pCard1 === 'A' || pCard2 === 'A') {
-            const otherCard = pCard1 === 'A' ? pCard2 : pCard1;
-            const key = `A,${getCardValue(otherCard)}`;
+        // 2. Check for Soft Hands (one Ace)
+        if (lookupP1 === 'A' || lookupP2 === 'A') {
+            const otherCard = lookupP1 === 'A' ? lookupP2 : lookupP1;
+            const key = `A,${otherCard}`;
             if (STRATEGY_CHART.soft.rows[key]) {
-                return STRATEGY_CHART.soft.rows[key][dealerCard];
+                return STRATEGY_CHART.soft.rows[key]?.[dealerLookup];
             }
         }
 
-        const total = getCardValue(pCard1) + getCardValue(pCard2);
+        // 3. Handle Hard Totals
+        const total = getCardNumericValue(pCard1) + getCardNumericValue(pCard2);
         const hardKeys = Object.keys(STRATEGY_CHART.hard.rows);
-        const matchedKey = hardKeys.find(k => {
-            if (k.includes('-')) {
-                const [min, max] = k.split('-').map(Number);
+        const matchedKey = hardKeys.find(key => {
+            if (key.includes('-')) {
+                const [min, max] = key.split('-').map(Number);
                 return total >= min && total <= max;
             }
-            return parseInt(k, 10) === total;
+            return parseInt(key, 10) === total;
         });
-        return matchedKey ? STRATEGY_CHART.hard.rows[matchedKey][dealerCard] : null;
+
+        return matchedKey ? STRATEGY_CHART.hard.rows[matchedKey]?.[dealerLookup] : null;
     };
     
     // --- UI RENDERING & EVENT LISTENERS ---
@@ -171,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = document.createElement('button');
             button.className = `rounded-lg font-bold text-lg sm:text-xl transition-all duration-150 flex items-center justify-center h-12 ${isBackspace ? 'bg-red-800 hover:bg-red-700 col-span-2' : 'bg-gray-600 hover:bg-gray-500'}`;
             if (isBackspace) {
-                button.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 002.828 0L19 12M3 12l6.414-6.414a2 2 0 012.828 0L19 12"></path></svg>`;
+                button.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.21-.21.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"></path></svg>`;
                 button.style.gridColumn = 'span 2';
                 button.addEventListener('click', handleBackspace);
             } else {
