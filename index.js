@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '10', 'J', 'Q', 'K',
         'DEL', 'A', 'NEW'
     ];
-    const STRATEGY_CHART = {
+    const STRATEGY_CHART = { /* Strategy chart data remains the same */ 
         hard: { title: 'Hard Totals', legend: 'Your hand does not contain an Ace counted as 11.', rows: { '17-21': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, '16': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'Sr', '10': 'Sr', A: 'Sr' }, '15': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'Sr', A: 'H' }, '14': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '13': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '12': { '2': 'H', '3': 'H', '4': 'S', '5': 'S', '6': 'S', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '11': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'D', A: 'D' }, '10': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'H', A: 'H' }, '9': { '2': 'H', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '5-8': { '2': 'H', '3': 'H', '4': 'H', '5': 'H', '6': 'H', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}},
         soft: { title: 'Soft Totals', legend: 'Your hand contains an Ace counted as 11.', rows: { 'A,9': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, 'A,8': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'D', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, 'A,7': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'S', '8': 'S', '9': 'H', '10': 'H', A: 'H' }, 'A,6': { '2': 'H', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,5': { '2': 'H', '3': 'H', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,4': { '2': 'H', '3': 'H', '4': 'D', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,3': { '2': 'H', '3': 'H', '4': 'H', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, 'A,2': { '2': 'H', '3': 'H', '4': 'H', '5': 'D', '6': 'D', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}},
         pairs: { title: 'Pairs', legend: 'Your hand consists of two cards of the same rank.', rows: { 'A,A': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'P', '9': 'P', '10': 'P', A: 'P' }, '10,10': { '2': 'S', '3': 'S', '4': 'S', '5': 'S', '6': 'S', '7': 'S', '8': 'S', '9': 'S', '10': 'S', A: 'S' }, '9,9': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'S', '8': 'P', '9': 'P', '10': 'S', A: 'S' }, '8,8': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'P', '9': 'P', '10': 'P', A: 'P' }, '7,7': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '6,6': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '5,5': { '2': 'D', '3': 'D', '4': 'D', '5': 'D', '6': 'D', '7': 'D', '8': 'D', '9': 'D', '10': 'H', A: 'H' }, '4,4': { '2': 'H', '3': 'H', '4': 'H', '5': 'P', '6': 'P', '7': 'H', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '3,3': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }, '2,2': { '2': 'P', '3': 'P', '4': 'P', '5': 'P', '6': 'P', '7': 'P', '8': 'H', '9': 'H', '10': 'H', A: 'H' }}}
@@ -18,23 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         playerDisplay: document.getElementById('player-display'),
         dealerCardValue: document.getElementById('dealer-card-value'),
         playerCardsValue: document.getElementById('player-cards-value'),
+        dealerTotalValue: document.getElementById('dealer-total-value'),
+        playerTotalValue: document.getElementById('player-total-value'),
         dealerCursor: document.getElementById('dealer-cursor'),
         playerCursor: document.getElementById('player-cursor'),
         keypad: document.getElementById('keypad'),
-        result: {
-            container: document.getElementById('result-display'),
-            initial: document.getElementById('initial-message'),
-            loading: document.getElementById('loading-spinner'),
-            error: document.getElementById('error-message'),
-            strategy: document.getElementById('strategy-result'),
-            strategyText: document.getElementById('strategy-text'),
-        },
-        chart: {
-            modal: document.getElementById('chart-modal'),
-            tables: document.getElementById('chart-tables'),
-            viewBtn: document.getElementById('view-chart-btn'),
-            closeBtn: document.getElementById('close-chart-btn'),
-        }
+        result: { container: document.getElementById('result-display'), initial: document.getElementById('initial-message'), loading: document.getElementById('loading-spinner'), error: document.getElementById('error-message'), errorText: document.getElementById('error-text'), strategy: document.getElementById('strategy-result'), strategyText: document.getElementById('strategy-text'), },
+        chart: { modal: document.getElementById('chart-modal'), tables: document.getElementById('chart-tables'), viewBtn: document.getElementById('view-chart-btn'), closeBtn: document.getElementById('close-chart-btn'), }
     };
 
     // --- APPLICATION STATE ---
@@ -42,7 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
         dealerCard: null,
         playerCards: [],
         activeInput: 'dealer', // 'dealer' or 'player'
-        isSubmitted: false,
+        isHandComplete: false,
+    };
+    
+    // --- UTILITY FUNCTIONS ---
+    const getCardNumericValue = (card) => {
+        if (['J', 'Q', 'K', '10'].includes(card)) return 10;
+        if (card === 'A') return 11;
+        return parseInt(card, 10);
+    };
+
+    const getHandTotal = (cards) => {
+        if (!cards || cards.length === 0) return { total: 0, isSoft: false };
+        let total = cards.reduce((sum, card) => sum + getCardNumericValue(card), 0);
+        let aceCount = cards.filter(c => c === 'A').length;
+        let isSoft = aceCount > 0;
+
+        while (total > 21 && aceCount > 0) {
+            total -= 10;
+            aceCount--;
+        }
+        
+        // isSoft is true if an Ace is still counting as 11 (which means it could become 1)
+        isSoft = aceCount > 0 && (total - 10 > 0);
+
+        return { total, isSoft };
     };
 
     // --- STATE MANAGEMENT AND UI UPDATES ---
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         state.dealerCard = null;
         state.playerCards = [];
         state.activeInput = 'dealer';
-        state.isSubmitted = false;
+        state.isHandComplete = false;
         updateUI();
         setResultDisplay('initial');
     };
@@ -60,70 +74,70 @@ document.addEventListener('DOMContentLoaded', () => {
         dom.dealerCardValue.textContent = state.dealerCard || '';
         dom.playerCardsValue.textContent = state.playerCards.join(', ');
 
+        // Update total values
+        const dealerTotal = getHandTotal(state.dealerCard ? [state.dealerCard] : []).total;
+        const playerTotal = getHandTotal(state.playerCards).total;
+        dom.dealerTotalValue.textContent = dealerTotal > 0 ? `(${dealerTotal})` : '';
+        dom.playerTotalValue.textContent = playerTotal > 0 ? `(${playerTotal})` : '';
+
+
         // Update active input visuals
-        const isDealerActive = state.activeInput === 'dealer' && !state.isSubmitted;
-        const isPlayerActive = state.activeInput === 'player' && !state.isSubmitted;
+        const isDealerActive = state.activeInput === 'dealer' && !state.isHandComplete;
+        const isPlayerActive = state.activeInput === 'player' && !state.isHandComplete;
 
         dom.dealerDisplay.classList.toggle('border-yellow-400', isDealerActive);
         dom.playerDisplay.classList.toggle('border-yellow-400', isPlayerActive);
         dom.dealerCursor.classList.toggle('hidden', !isDealerActive);
         dom.dealerCursor.classList.toggle('cursor-blink', isDealerActive);
-        dom.playerCursor.classList.toggle('hidden', !isPlayerActive);
+        dom.playerCursor.classList.toggle('hidden', !isPlayerActive || state.playerCards.length === 0);
         dom.playerCursor.classList.toggle('cursor-blink', isPlayerActive);
         
-        // Disable keypad if submitted, and manage 'New Hand' button state
-        const newHandBtn = dom.keypad.querySelector('[data-key="NEW"]');
+        // Enable/disable keypad buttons based on hand state
         dom.keypad.querySelectorAll('button').forEach(button => {
-            if (button.dataset.key !== 'NEW') {
-                button.disabled = state.isSubmitted;
-                button.classList.toggle('opacity-50', state.isSubmitted);
-            }
+            const key = button.dataset.key;
+            if (key === 'NEW' || key === 'DEL') return; // Handled separately
+            button.disabled = state.isHandComplete;
+            button.classList.toggle('opacity-50', state.isHandComplete);
+            button.classList.toggle('cursor-not-allowed', state.isHandComplete);
         });
-        if (newHandBtn) {
-           newHandBtn.disabled = !state.dealerCard && state.playerCards.length === 0;
-        }
+        
+        const newHandBtn = dom.keypad.querySelector('[data-key="NEW"]');
+        if(newHandBtn) newHandBtn.disabled = !state.dealerCard && state.playerCards.length === 0;
     };
 
     const setResultDisplay = (mode, data = {}) => {
-        // Hide all result sections first
-        ['initial', 'loading', 'error', 'strategy'].forEach(key => {
-            dom.result[key].classList.add('hidden');
-        });
+        ['initial', 'loading', 'error', 'strategy'].forEach(key => dom.result[key].classList.add('hidden'));
+        if (dom.result[mode]) dom.result[mode].classList.remove('hidden');
 
-        // Show the correct section
-        if (dom.result[mode]) {
-            dom.result[mode].classList.remove('hidden');
-        }
-
-        // Update content if strategy is provided
         if (mode === 'strategy' && data.text) {
             dom.result.strategyText.textContent = data.text;
             dom.result.strategyText.className = `text-4xl sm:text-5xl font-black tracking-wider mt-1 ${data.color || 'text-white'}`;
+        }
+        if (mode === 'error' && data.text) {
+             dom.result.errorText.textContent = data.text;
         }
     };
 
     // --- CORE LOGIC ---
     const handleKeyPress = (key) => {
-        if (state.isSubmitted) return;
+        if (state.isHandComplete) return;
 
         if (state.activeInput === 'dealer') {
             state.dealerCard = key;
             state.activeInput = 'player';
-        } else if (state.activeInput === 'player' && state.playerCards.length < 2) {
+        } else if (state.activeInput === 'player') {
             state.playerCards.push(key);
         }
         
         updateUI();
 
-        if (state.dealerCard && state.playerCards.length === 2) {
-            state.isSubmitted = true;
-            updateUI();
+        if (state.dealerCard && state.playerCards.length >= 2) {
             calculateAndDisplayStrategy();
         }
     };
     
     const handleBackspace = () => {
-        if (state.isSubmitted) return;
+        if (state.isHandComplete) return;
 
         if (state.activeInput === 'player') {
             if (state.playerCards.length > 0) {
@@ -134,58 +148,80 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (state.activeInput === 'dealer') {
             state.dealerCard = null;
         }
+        
+        // After backspace, if we don't have a full hand, clear the result
+        if (!state.dealerCard || state.playerCards.length < 2) {
+             setResultDisplay('initial');
+        } else {
+             calculateAndDisplayStrategy();
+        }
         updateUI();
     };
 
     const calculateAndDisplayStrategy = () => {
+        const playerHandInfo = getHandTotal(state.playerCards);
+
+        if (playerHandInfo.total > 21) {
+            setResultDisplay('strategy', { text: 'BUST', color: 'text-red-500'});
+            state.isHandComplete = true; // Hand is over
+            updateUI();
+            return;
+        }
+        if (playerHandInfo.total === 21) {
+            setResultDisplay('strategy', { text: 'STAND', color: 'text-yellow-400'});
+            state.isHandComplete = true; // Hand is over
+            updateUI();
+            return;
+        }
+
+        // Hand is not over, can still hit
+        state.isHandComplete = false; 
+
         setResultDisplay('loading');
-        setTimeout(() => {
-            const actionCode = getStrategyFromChart(state.dealerCard, state.playerCards[0], state.playerCards[1]);
+        setTimeout(() => { // Simulate processing time
+            const actionCode = getStrategyFromChart(state.dealerCard, state.playerCards);
             
             if (actionCode) {
                 const actionMap = { H: 'Hit', S: 'Stand', D: 'Double', P: 'Split', Sr: 'Surrender' };
                 const colorMap = { H: 'text-green-400', S: 'text-red-400', D: 'text-green-300', P: 'text-blue-400', Sr: 'text-gray-400' };
                 
-                setResultDisplay('strategy', {
-                    text: actionMap[actionCode]?.toUpperCase(),
-                    color: colorMap[actionCode]
-                });
+                setResultDisplay('strategy', { text: actionMap[actionCode]?.toUpperCase(), color: colorMap[actionCode] });
             } else {
-                setResultDisplay('error');
+                setResultDisplay('error', {text: 'Could not determine a valid strategy.'});
+                state.isHandComplete = true; // Error state should stop input
             }
-        }, 300); // Simulate network delay for better UX
+            updateUI();
+        }, 100); // Reduced delay for snappier feel
     };
 
-    const getStrategyFromChart = (dealerCard, pCard1, pCard2) => {
-        const getCardNumericValue = (card) => {
-            if (['J', 'Q', 'K', '10'].includes(card)) return 10;
-            if (card === 'A') return 11;
-            return parseInt(card, 10);
-        };
-
+    const getStrategyFromChart = (dealerCard, playerCards) => {
         const getCardLookupValue = (card) => (['J', 'Q', 'K'].includes(card) ? '10' : card);
-        
-        const p1 = getCardLookupValue(pCard1);
-        const p2 = getCardLookupValue(pCard2);
         const dealer = getCardLookupValue(dealerCard);
+        const handInfo = getHandTotal(playerCards);
+        const pCardsLookup = playerCards.map(getCardLookupValue);
 
-        // 1. Check for Pairs
-        if (p1 === p2) {
-            const key = [p1, p1].sort().join(','); // Sort for consistency, e.g., '10,10'
-            return STRATEGY_CHART.pairs.rows[key]?.[dealer];
+        // 1. Check for Pairs (only on first two cards)
+        if (playerCards.length === 2 && pCardsLookup[0] === pCardsLookup[1]) {
+            const key = [pCardsLookup[0], pCardsLookup[1]].sort().join(',');
+            // Handle 10,J,Q,K as 10,10 for pairs
+            const pairKey = key === '10,J' || key === '10,Q' || key === '10,K' || key === 'J,Q' || key === 'J,K' || key === 'Q,K' ? '10,10' : key;
+            if (STRATEGY_CHART.pairs.rows[pairKey]) {
+                 return STRATEGY_CHART.pairs.rows[pairKey]?.[dealer];
+            }
         }
 
         // 2. Check for Soft Hands
-        if (p1 === 'A' || p2 === 'A') {
-            const otherCard = p1 === 'A' ? p2 : p1;
-            const key = `A,${otherCard}`;
+        if (handInfo.isSoft && handInfo.total > 12 && handInfo.total < 21) {
+            // Find the non-ace card value to match the chart keys (e.g., for A,7 total is 18)
+            const nonAceTotal = handInfo.total - 11;
+            const key = `A,${nonAceTotal}`;
             if (STRATEGY_CHART.soft.rows[key]) {
                 return STRATEGY_CHART.soft.rows[key]?.[dealer];
             }
         }
 
         // 3. Handle Hard Totals
-        const total = getCardNumericValue(pCard1) + getCardNumericValue(pCard2);
+        const total = handInfo.total;
         const matchedKey = Object.keys(STRATEGY_CHART.hard.rows).find(key => {
             if (key.includes('-')) {
                 const [min, max] = key.split('-').map(Number);
@@ -199,22 +235,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- DYNAMIC RENDERING ---
     const renderKeypad = () => {
-        dom.keypad.innerHTML = ''; // Clear existing
+        dom.keypad.innerHTML = '';
         KEYPAD_LAYOUT.forEach(key => {
             const button = document.createElement('button');
             button.dataset.key = key;
-            button.className = `rounded-lg font-bold text-lg sm:text-xl transition-all duration-150 flex items-center justify-center h-12 focus:outline-none focus:ring-2 focus:ring-yellow-400`;
+            button.className = `rounded-lg font-bold text-lg sm:text-xl transition-all duration-150 flex items-center justify-center h-12 focus:outline-none focus:ring-2 focus:ring-yellow-400 disabled:cursor-not-allowed`;
 
             switch (key) {
                 case 'DEL':
-                    button.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 002.828 0L19 12M3 12l6.414-6.414a2 2 0 012.828 0L19 12"></path></svg>`;
-                    button.classList.add('bg-red-800', 'hover:bg-red-700', 'col-span-1');
+                    button.innerHTML = `<svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 002.828 0L19 12M3 12l6.414-6.414a2 2 0 012.828 0L19 12"></path></svg>`;
+                    button.classList.add('bg-red-800', 'hover:bg-red-700');
                     button.addEventListener('click', handleBackspace);
                     button.setAttribute('aria-label', 'Delete');
                     break;
                 case 'NEW':
                     button.textContent = 'New';
-                    button.classList.add('bg-gray-700', 'hover:bg-gray-600', 'disabled:opacity-50', 'col-span-1');
+                    button.classList.add('bg-gray-700', 'hover:bg-gray-600', 'disabled:opacity-50');
                     button.addEventListener('click', resetState);
                     break;
                 case 'A':
@@ -224,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
                 default:
                     button.textContent = key;
-                    button.classList.add('bg-gray-600', 'hover:bg-gray-500', 'col-span-1');
+                    button.classList.add('bg-gray-600', 'hover:bg-gray-500');
                     button.addEventListener('click', () => handleKeyPress(key));
                     break;
             }
@@ -269,7 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dom.chart.modal.addEventListener('click', (e) => {
             if (e.target === dom.chart.modal) dom.chart.modal.classList.add('hidden');
         });
-        // Close modal with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === "Escape" && !dom.chart.modal.classList.contains('hidden')) {
                 dom.chart.modal.classList.add('hidden');
@@ -282,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderKeypad();
         renderStrategyChart();
         setupEventListeners();
-        resetState(); // Set the initial state
+        resetState();
     };
 
     init();
