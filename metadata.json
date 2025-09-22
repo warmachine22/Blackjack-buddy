@@ -1,0 +1,5 @@
+{
+  "name": "Blackjack Strategy Advisor",
+  "description": "A simple tool to get the correct blackjack strategy for your hand. Enter the dealer's up card and your two cards to receive an expert recommendation on whether to hit, stand, double down, or split.",
+  "requestFramePermissions": []
+}
